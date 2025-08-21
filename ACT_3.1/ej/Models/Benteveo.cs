@@ -16,7 +16,7 @@ namespace ej.Models
         {
             TieneHambre();
             Come();
-            accionesBenteveo.Add($"Benteveo puso {poneHuevos} huevos\n");
+            accionesBenteveo.Add($"Benteveo puso {poneHuevos} huevos");
             foreach (string accion in accionesBenteveo)
             {
                 acciones.Add(accion);
@@ -27,7 +27,7 @@ namespace ej.Models
         {
             if (tieneHambre == true)
             {
-                accionesBenteveo.Add("Benteveo manguea torta\n");
+                accionesBenteveo.Add("Benteveo manguea torta");
                 poneHuevos = 1;
             }
         }

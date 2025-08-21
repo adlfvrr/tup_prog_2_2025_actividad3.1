@@ -18,7 +18,7 @@ namespace ej.Models
         {
             TieneHambre();
             Come();
-            accionesGallina.Add($"La gallina puso {PoneHuevos} huevos\n");
+            accionesGallina.Add($"La gallina puso {PoneHuevos} huevos");
             foreach (string accion in accionesGallina)
             {
                 acciones.Add(accion);
@@ -35,8 +35,8 @@ namespace ej.Models
             {
                 int racionesDadas = random.Next(0, 10);
                 int racionesComidas = random.Next(racionesDadas);
-                PoneHuevos = racionesComidas;
-                accionesGallina.Add($"La gallina come {racionesComidas} raciones de las {racionesDadas}.\n");
+                poneHuevos = racionesComidas;
+                accionesGallina.Add($"La gallina come {racionesComidas} raciones de las {racionesDadas}.");
             } 
         }
         override public void TieneHambre()
@@ -45,11 +45,11 @@ namespace ej.Models
             if (hambre == 1)
             {
                 tieneHambre = true;
-                accionesGallina.Add("La gallina tiene hambre\n");
+                accionesGallina.Add("La gallina tiene hambre");
             }
             else
             {
-                accionesGallina.Add("La gallina no tiene hambre\n");
+                accionesGallina.Add("La gallina no tiene hambre");
             }
 
         }
