@@ -8,6 +8,10 @@ namespace ej.Models
 {
     internal class Zorro: Animal
     {
+        public override List<string> CorreRutina()
+        {
+            
+        }
 
     }
 }
