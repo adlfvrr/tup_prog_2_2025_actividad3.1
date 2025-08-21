@@ -17,7 +17,11 @@ namespace ej.Models
             TieneHambre();
             Come();
             accionesBenteveo.Add($"Benteveo puso {poneHuevos} huevos\n");
-            return accionesBenteveo;
+            foreach (string accion in accionesBenteveo)
+            {
+                acciones.Add(accion);
+            }
+            return acciones;
         }
         public override void Come()
         {

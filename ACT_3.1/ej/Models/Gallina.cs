@@ -19,7 +19,11 @@ namespace ej.Models
             TieneHambre();
             Come();
             accionesGallina.Add($"La gallina puso {PoneHuevos} huevos\n");
-            return accionesGallina;
+            foreach (string accion in accionesGallina)
+            {
+                acciones.Add(accion);
+            }
+            return acciones;
         }
         public override int PoneHuevos()
         {
