@@ -8,45 +8,32 @@ namespace ej.Models
 {
     internal class Benteveo: Ave
     {
-        List<string> accionesBenteveo = new List<string>();
-        bool tieneHambre = false;
-        int poneHuevos;
         Random random = new Random();
         public override List<string> CorreRutina()
         {
-            TieneHambre();
             Come();
-            accionesBenteveo.Add($"Benteveo puso {poneHuevos} huevos");
-            foreach (string accion in accionesBenteveo)
-            {
-                acciones.Add(accion);
-            }
+            acciones.Add($"El benteveo pone {PoneHuevos()} huevo");
             return acciones;
         }
         public override void Come()
         {
-            if (tieneHambre == true)
+            if (TieneHambre() == true)
             {
-                accionesBenteveo.Add("Benteveo manguea torta");
-                poneHuevos = 1;
+                acciones.Add("Benteveo manguea torta");
             }
         }
         public override int PoneHuevos()
         {
-            return poneHuevos;
+            int huevos = 0;
+            if (TieneHambre() == true)
+                { huevos = 1; }
+            return huevos;
         }
-        public override void TieneHambre()
+        public override bool TieneHambre()
         {
-            int hambre = random.Next(1, 2);
-            if (hambre == 1)
-            {
-                tieneHambre = true;
-                accionesBenteveo.Add("Benteveo tiene hambre");
-            }
-            else
-            {
-                accionesBenteveo.Add("Benteveo no tiene hambre");
-            }
+            int hambre = random.Next(0,1);
+            if (hambre == 0) {return false;}
+            else { return true;}
         }
     }
 }

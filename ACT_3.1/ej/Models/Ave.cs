@@ -12,6 +12,6 @@ namespace ej.Models
 
         public abstract void Come();
         public abstract int PoneHuevos();
-        public abstract void TieneHambre();
+        public abstract bool TieneHambre();
     }
 }

@@ -9,49 +9,40 @@ namespace ej.Models
     internal class Gallina: Ave
     {
         Random random = new Random();
-        public int Racion;
-        public int poneHuevos;
-        bool tieneHambre = false;
-        List<string> accionesGallina = new List<string>();
+        public int Racion { get; set; }
 
         public override List<string> CorreRutina()
         {
-            TieneHambre();
             Come();
-            accionesGallina.Add($"La gallina puso {PoneHuevos} huevos");
-            foreach (string accion in accionesGallina)
-            {
-                acciones.Add(accion);
-            }
+            acciones.Add($"La gallina puso {PoneHuevos()} huevos");
             return acciones;
         }
         public override int PoneHuevos()
         {
-            return poneHuevos;
+            int maximo = Racion;
+            if (maximo > 1) { maximo = 2; }
+            int huevos = random.Next(maximo);
+            return huevos;
         }
         public override void Come()
         {
-            if (tieneHambre == true)
+            if (TieneHambre() == true)
             {
-                int racionesDadas = random.Next(0, 10);
-                int racionesComidas = random.Next(racionesDadas);
-                poneHuevos = racionesComidas;
-                accionesGallina.Add($"La gallina come {racionesComidas} raciones de las {racionesDadas}.");
-            } 
+                Racion = random.Next(0, 10);
+                acciones.Add($"La gallina comió {Racion} raciones");
+            }
         }
-        override public void TieneHambre()
+        override public bool TieneHambre()
         {
-            int hambre = random.Next(1, 2);
-            if (hambre == 1)
+            int tieneHambre = random.Next(0, 1);
+            if(tieneHambre == 0)
             {
-                tieneHambre = true;
-                accionesGallina.Add("La gallina tiene hambre");
+                return false;
             }
             else
             {
-                accionesGallina.Add("La gallina no tiene hambre");
+                return true;
             }
-
         }
     }
 }
