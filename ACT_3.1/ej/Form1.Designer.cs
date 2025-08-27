@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnSimularDia = new Button();
+            lsbSimular = new ListBox();
+            SuspendLayout();
+            // 
+            // btnSimularDia
+            // 
+            btnSimularDia.Location = new Point(664, 196);
+            btnSimularDia.Name = "btnSimularDia";
+            btnSimularDia.Size = new Size(151, 54);
+            btnSimularDia.TabIndex = 0;
+            btnSimularDia.Text = "Simular Dia";
+            btnSimularDia.UseVisualStyleBackColor = true;
+            btnSimularDia.Click += btnSimularDia_Click;
+            // 
+            // lsbSimular
+            // 
+            lsbSimular.FormattingEnabled = true;
+            lsbSimular.HorizontalScrollbar = true;
+            lsbSimular.ItemHeight = 15;
+            lsbSimular.Location = new Point(12, 12);
+            lsbSimular.Name = "lsbSimular";
+            lsbSimular.ScrollAlwaysVisible = true;
+            lsbSimular.Size = new Size(646, 454);
+            lsbSimular.TabIndex = 1;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(853, 482);
+            Controls.Add(lsbSimular);
+            Controls.Add(btnSimularDia);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnSimularDia;
+        private ListBox lsbSimular;
     }
 }

@@ -9,40 +9,34 @@ namespace ej.Models
     internal class Gallina: Ave
     {
         Random random = new Random();
-        public int Racion { get; set; }
-
-        public override List<string> CorreRutina()
-        {
-            Come();
-            acciones.Add($"La gallina puso {PoneHuevos()} huevos");
-            return acciones;
-        }
+        int raciones;
         public override int PoneHuevos()
         {
-            int maximo = Racion;
-            if (maximo > 1) { maximo = 2; }
-            int huevos = random.Next(maximo);
+            int huevos = 0;
+            if (TieneHambre() == false)
+            {
+                int maximo = raciones;
+                if (maximo > 1) 
+                {
+                    maximo = 2;
+                    huevos = random.Next(0, maximo);
+                }
+                raciones = 0;
+            }
+            acciones.Add($"La gallina puso {huevos} huevos");
             return huevos;
         }
         public override void Come()
         {
             if (TieneHambre() == true)
             {
-                Racion = random.Next(0, 10);
-                acciones.Add($"La gallina comió {Racion} raciones");
+                raciones += random.Next(0, 10);
+                acciones.Add($"La gallina comió {raciones} raciones");
             }
         }
         override public bool TieneHambre()
         {
-            int tieneHambre = random.Next(0, 1);
-            if(tieneHambre == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return random.Next(0, 2) == 1;
         }
     }
 }
